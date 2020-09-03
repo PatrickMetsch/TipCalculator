@@ -1,0 +1,27 @@
+﻿@model TipCalculatorModel
+@{
+    var culture = System.Globalization.CultureInfo
+        .CreateSpecificCulture("en-US");
+
+    ViewBag.title = "Tip Calculator";
+}
+
+<h1>Tip Calculator</h1>
+<form asp-action="Index" method="post">
+    <div>
+        <label asp-for="MealCost">Meal Cost:</label>
+        <input asp-for="MealCost" />
+    </div>
+    <div>
+        <label>15% Tip:</label>
+        <input value='@ViewBag.Fifteen.ToString("C2", culture)' />
+    </div>
+    <div>
+        <label>20% Tip:</label>
+        <input value='@ViewBag.Twenty.ToString("C2", culture)' />
+    </div>
+    <div>
+        <label>25% Tip:</label>
+        <input value='@ViewBag.TwentyFive.ToString("C2", culture)' />
+    </div>
+</form>
